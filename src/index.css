@@ -1,0 +1,292 @@
+@import "tailwindcss";
+
+/* ============================================================
+   全局字号：Tailwind 所有尺寸基于 rem，调这一个值整体缩放。
+   默认 16px；18px ≈ 整体放大 12.5%。觉得还小就改成 19/20。
+   ============================================================ */
+html {
+  font-size: 18px;
+}
+
+:root {
+  color: #272331;
+  background: #f7f6fb;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 1080px;
+  min-height: 720px;
+  background: #f7f6fb;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #c7bfd7;
+  border-radius: 999px;
+}
+
+/* 写死的超小字号统一抬高，保证可读性 */
+.text-\[10px\],
+.text-\[11px\] {
+  font-size: 12.5px !important;
+  line-height: 1.5 !important;
+}
+
+.text-\[12px\],
+.text-\[13px\] {
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
+
+.panel {
+  border: 1px solid #e9e5f1;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.field {
+  width: 100%;
+  border: 1px solid #e3deec;
+  border-radius: 8px;
+  background: #fff;
+  color: #262231;
+  padding: 10px 12px;
+  outline: none;
+  font-size: 0.85rem;
+}
+
+.field:focus {
+  border-color: #7b55df;
+  box-shadow: 0 0 0 3px rgba(123, 85, 223, 0.12);
+}
+
+/* ============================================================
+   统一浅色主题：把代码里残留的深色 Tailwind 类整体映射成
+   TradeZella 风格的浅色调，保证全 App 观感一致。
+   ============================================================ */
+
+/* 面板 / 卡片背景 → 白色卡片 + 轻阴影 */
+.bg-neutral-950,
+.bg-neutral-900\/50,
+.bg-neutral-900\/60,
+.bg-neutral-900,
+.bg-slate-900\/70,
+.bg-slate-900 {
+  background-color: #fff !important;
+}
+
+.bg-neutral-900\/50 {
+  box-shadow: 0 1px 2px rgba(27, 18, 43, 0.05);
+  border-radius: 10px;
+}
+
+.bg-neutral-800,
+.hover\:bg-neutral-800:hover {
+  background-color: #f1edf9 !important;
+}
+
+/* 边框统一为浅紫灰 */
+.border-neutral-800,
+.border-neutral-700,
+.border-slate-800,
+.border-slate-700 {
+  border-color: #e9e5f1 !important;
+}
+
+.hover\:border-neutral-600:hover,
+.hover\:border-neutral-700:hover {
+  border-color: #b9a5ec !important;
+}
+
+/* 文字色阶 */
+.text-neutral-100,
+.text-neutral-200,
+.text-slate-100,
+.text-slate-200 {
+  color: #252130 !important;
+}
+
+.text-neutral-300,
+.text-slate-300,
+.text-neutral-400,
+.text-slate-400 {
+  color: #564f63 !important;
+}
+
+.text-neutral-500,
+.text-neutral-600,
+.text-slate-500 {
+  color: #837b91 !important;
+}
+
+/* 状态色：深色主题用的亮色系 → 适合白底的深一档 */
+.text-emerald-400,
+.text-emerald-300 {
+  color: #0e9f6e !important;
+}
+
+.text-red-400,
+.text-red-300 {
+  color: #e5484d !important;
+}
+
+.text-amber-400,
+.text-amber-200,
+.text-amber-300 {
+  color: #b45309 !important;
+}
+
+.text-sky-400 {
+  color: #0284c7 !important;
+}
+
+.text-indigo-400 {
+  color: #6d44d9 !important;
+}
+
+.text-red-200 {
+  color: #c53030 !important;
+}
+
+/* 深色状态底 → 浅色提示底 */
+.bg-emerald-950\/10,
+.bg-emerald-950\/30,
+.bg-emerald-950\/40 {
+  background-color: #f0fbf6 !important;
+}
+
+.border-emerald-900\/60,
+.border-emerald-900,
+.border-emerald-700 {
+  border-color: #b7e6cf !important;
+}
+
+.bg-red-950\/30,
+.bg-red-950\/40,
+.bg-red-900\/40 {
+  background-color: #fdf1f1 !important;
+}
+
+.border-red-900\/60,
+.border-red-900,
+.border-red-700 {
+  border-color: #f3c5c8 !important;
+}
+
+.bg-amber-950\/20,
+.bg-amber-900\/30 {
+  background-color: #fdf7ea !important;
+}
+
+.border-amber-800 {
+  border-color: #ecd9ae !important;
+}
+
+/* 主操作按钮统一品牌紫 */
+.bg-emerald-600,
+.bg-indigo-600 {
+  background-color: #6d44d9 !important;
+}
+
+.hover\:bg-emerald-500:hover,
+.hover\:bg-indigo-500:hover {
+  background-color: #5d35c6 !important;
+}
+
+/* 次级小按钮悬浮反馈 */
+.hover\:bg-neutral-700:hover {
+  background-color: #e6def7 !important;
+}
+
+/* ============================================================
+   Brooks 日报正文排版
+   ============================================================ */
+.brooks-article {
+  font-size: 0.85rem;
+  line-height: 1.75;
+}
+
+.brooks-article h1,
+.brooks-article h2 {
+  margin: 22px 0 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #191622;
+  border-bottom: 1px solid #eeeaf3;
+  padding-bottom: 6px;
+}
+
+.brooks-article h3,
+.brooks-article h4 {
+  margin: 18px 0 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #262231;
+}
+
+.brooks-article p {
+  margin: 10px 0;
+}
+
+.brooks-article ul,
+.brooks-article ol {
+  margin: 10px 0;
+  padding-left: 24px;
+}
+
+.brooks-article li {
+  margin: 6px 0;
+}
+
+.brooks-article img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 1px solid #ece8f2;
+  margin: 12px 0;
+}
+
+.brooks-article a {
+  color: #6d44d9;
+  text-decoration: underline;
+}
+
+.brooks-article strong,
+.brooks-article b {
+  color: #191622;
+}
+
+.brooks-article hr {
+  border: none;
+  border-top: 1px solid #eeeaf3;
+  margin: 18px 0;
+}
+
+.brooks-article .caption {
+  font-size: 0.78rem;
+  color: #837b91;
+}
